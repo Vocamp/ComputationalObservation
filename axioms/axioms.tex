@@ -1,0 +1,117 @@
+% Journal:
+%   Journal of Ambient Intelligence and Smart Environments (JAISE), IOS Press
+%   Web Intelligence and Agent Systems: An International Journal (wias)
+%   Semantic Web: Interoperability, Usability, Applicability (SW)
+% Latex 2e
+% Test file iosart2c.tex
+
+%[seceqn,secfloat,secthm,crcready]
+
+% options: wias, jaise, sw
+\documentclass{article}
+
+
+\usepackage[T1]{fontenc}
+\usepackage{times}%
+
+\usepackage[square,sort,comma,numbers]{natbib}
+%\usepackage[dvips]{hyperref}
+\usepackage{amsmath}
+\usepackage{dcolumn}
+%\usepackage{endnotes}
+\usepackage{graphicx}
+\usepackage{color}
+%\usepackage{hyphenat}
+
+% \usepackage{stmaryrd}
+% \usepackage{latexsym}
+% \usepackage{subfigure}
+% \usepackage{listings}
+% \usepackage{hyperref}
+% \usepackage{marginnote}
+% \usepackage{paralist}
+% \usepackage{soul}
+% \usepackage{wrapfig}
+% \definecolor{darkred}{RGB}{210,1,1}
+% \definecolor{darkyellow}{RGB}{238,183,23}
+% \newcommand{\reminder}[1]{
+%   \marginnote{
+%     \begin{scriptsize}
+%       \textcolor{darkred}{#1}
+%     \end{scriptsize}
+%   }
+% }
+
+% \hypersetup{%
+%     colorlinks=true, linktocpage=true, pdfstartpage=3, pdfstartview=FitV,%
+%     breaklinks=true, pdfpagemode=UseNone, pageanchor=true, pdfpagemode=UseOutlines,%
+%     plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
+%     hypertexnames=true, urlcolor=blue, linkcolor=blue, citecolor=blue}
+% \sloppy
+
+
+\newcolumntype{d}[1]{D{.}{.}{#1}}
+
+\newcommand{\todo}[1]{\textbf{{\color{blue}$\Longrightarrow$ #1}}}
+
+% \firstpage{1} \lastpage{5} \volume{1} \pubyear{2009}
+
+
+\begin{document}
+%\begin{frontmatter} % The preamble begins here.
+%
+Queries
+\begin{itemize}
+\item Given a particular \textsf{Execution}, retrieve the pertaining \textsf{ComputerModel}
+\item Given some \textsf{InstantiationAttributeOutput} retrieve all related \textsf{CodeFile}
+\end{itemize}
+
+
+\bigbreak \bigbreak
+\textbf{Mutually disjoint classes:} \textsf{Attribute}, \textsf{ComputationalModel}, \textsf{Algorithm}, \textsf{CodeCollection}, \textsf{CodeFile}, \textsf{ExecutableCollection},  \textsf{ExectuableFile}, 
+\textsf{Execution}, \textsf{AttributeInstantiation}.
+
+\begin{align}
+\textsf{Attribute} \sqcap \textsf{AttributeInstantiation}
+\end{align}
+
+\begin{align}
+\textsf{InputAttribute} &\sqsubseteq \textsf{Attribute} \\
+\textsf{OutputAttribute} &\sqsubseteq \textsf{Attribute}
+\end{align}
+
+\begin{align}
+\textsf{ComputationalObservation} &\sqsubseteq \textsf{OutputAttributeInstantiation} \\
+\textsf{OutputAttributeInstantiation} &\sqsubseteq \textsf{AttributeInstantiation} \\
+\textsf{InputAttributeInstantiation} &\sqsubseteq \textsf{AttributeInstantiation}
+\end{align}
+
+\begin{align}
+\textsf{ComputationalModel} &\sqsubseteq \exists \textsf{hasInputAttribute}.\textsf{InputAttribute} \\
+\textsf{ComputationalModel} &\sqsubseteq \exists \textsf{hasOutputAttribute}.\textsf{OutputAttribute}
+\end{align}
+
+\begin{align}
+\textsf{Execution} &\sqsubseteq \exists \textsf{hasInputAttributeInstantiation}.\textsf{InputAttributeInstantiation} \\
+\textsf{Execution} &\sqsubseteq \exists \textsf{hasOutputAttributeInstantiation}.\textsf{OutputAttributeInstantiation} \\
+\textsf{Execution} &\sqsubseteq \geq 0 \textsf{hasStartTime}.\textsf{StartTime} \\
+\textsf{Execution} &\sqsubseteq \geq 0 \textsf{hasEndTime}.\textsf{EndTime} \\
+\textsf{Execution} &\sqsubseteq \geq 0 \textsf{occurredAtMachine}.\textsf{Machine} \\
+\textsf{Execution} &\sqsubseteq \geq 0 \ldots \ldots \ldots
+\end{align}
+
+\begin{align}
+\textsf{Execution} &\sqsubseteq \leq 1 \textsf{isExecutionOf}.\textsf{ExecutableCollection} \\
+\textsf{Execution} &\sqsubseteq \leq 1 \textsf{isRealizationOf}.\textsf{CodeCollection} \\
+\textsf{ExecutableCollection} &\sqsubseteq \leq 1 \textsf{wasCompiledFrom}.\textsf{CodeCollection}
+\end{align}
+
+\begin{align}
+\textsf{wasCompiledFrom}^- &\sqsubseteq \textsf{isCompiledInto}
+\end{align}
+
+\begin{align}
+\textsf{isExecutionOf} \circ \textsf{wasCompiledFrom} & \textsf{isRealizationOf}
+\end{align}
+ 
+\end{document}

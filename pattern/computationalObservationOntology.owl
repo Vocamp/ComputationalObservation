@@ -1,0 +1,214 @@
+@prefix : <http://www.descartesCore.org/computationalObservation#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://www.descartesCore.org/computationalObservation> .
+
+<http://www.descartesCore.org/computationalObservation> rdf:type owl:Ontology .
+
+
+#################################################################
+#
+#    Object Properties
+#
+#################################################################
+
+
+###  http://www.descartesCore.org/computationalObservation#compilesInto
+
+:compilesInto rdf:type owl:ObjectProperty ;
+              
+              rdfs:domain :CodeCollection ;
+              
+              rdfs:range :ExecutableCollection ;
+              
+              owl:inverseOf :isCompiledFrom .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#containsFile
+
+:containsFile rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#dependentOn
+
+:dependentOn rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#hasInputParameterInstantiation
+
+:hasInputParameterInstantiation rdf:type owl:ObjectProperty .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#implements
+
+:implements rdf:type owl:ObjectProperty ;
+            
+            rdfs:range :Algorithm ;
+            
+            rdfs:domain :CodeCollection ;
+            
+            owl:inverseOf :isImplementedBy .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#instantiates
+
+:instantiates rdf:type owl:ObjectProperty ;
+              
+              rdfs:domain :Algorithm ;
+              
+              rdfs:range :ComputationalModel .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#isCompiledFrom
+
+:isCompiledFrom rdf:type owl:ObjectProperty ;
+                
+                rdfs:range :CodeFile ;
+                
+                rdfs:domain :ExecutableCollection .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#isExecutionOf
+
+:isExecutionOf rdf:type owl:ObjectProperty ;
+               
+               rdfs:range :ExecutableCollection ;
+               
+               rdfs:domain :Execution ;
+               
+               owl:inverseOf :producesExecution .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#isImplementedBy
+
+:isImplementedBy rdf:type owl:ObjectProperty ;
+                 
+                 rdfs:domain :Algorithm ;
+                 
+                 rdfs:range :CodeCollection .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#isInstantiatedBy
+
+:isInstantiatedBy rdf:type owl:ObjectProperty ;
+                  
+                  rdfs:range :Algorithm ;
+                  
+                  rdfs:domain :ComputationalModel ;
+                  
+                  owl:inverseOf :instantiates .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#producesExecution
+
+:producesExecution rdf:type owl:ObjectProperty ;
+                   
+                   rdfs:domain :ExecutableCollection ;
+                   
+                   rdfs:range :Execution .
+
+
+
+
+
+#################################################################
+#
+#    Classes
+#
+#################################################################
+
+
+###  http://www.descartesCore.org/computationalObservation#Algorithm
+
+:Algorithm rdf:type owl:Class .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#AttributeType
+
+:AttributeType rdf:type owl:Class .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#CodeCollection
+
+:CodeCollection rdf:type owl:Class .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#CodeFile
+
+:CodeFile rdf:type owl:Class .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#ComputationalModel
+
+:ComputationalModel rdf:type owl:Class .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#ComputationalObservation
+
+:ComputationalObservation rdf:type owl:Class .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#ExecutableCollection
+
+:ExecutableCollection rdf:type owl:Class .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#ExecutableFile
+
+:ExecutableFile rdf:type owl:Class .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#Execution
+
+:Execution rdf:type owl:Class .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#InputParameterInstantiation
+
+:InputParameterInstantiation rdf:type owl:Class .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#InputParameterType
+
+:InputParameterType rdf:type owl:Class .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#OutputParameterInstatiation
+
+:OutputParameterInstatiation rdf:type owl:Class .
+
+
+
+###  http://www.descartesCore.org/computationalObservation#OutputParameterType
+
+:OutputParameterType rdf:type owl:Class .
+
+
+
+
+###  Generated by the OWL API (version 3.5.0) http://owlapi.sourceforge.net
+
